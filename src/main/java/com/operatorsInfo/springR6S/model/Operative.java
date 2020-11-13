@@ -18,6 +18,7 @@ public class Operative {
 
     private int armor;
     private int speed;
+    private int difficulty;
 
     private String name;
     private String description;
@@ -37,9 +38,11 @@ public class Operative {
     public Operative() {
     }
 
-    public Operative(Long id, int armor, int speed, String name, String description, Countries country, Sides side, Weapon weapon, byte[] photo) {
+    public Operative(Long id, int armor, int speed, int difficulty, String name, String description, Countries country, Sides side, Weapon weapon, byte[] photo) {
+        this.id = id;
         this.armor = armor;
         this.speed = speed;
+        this.difficulty = difficulty;
         this.name = name;
         this.description = description;
         this.country = country;
@@ -112,12 +115,25 @@ public class Operative {
         this.photo = photo;
     }
 
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "Operative{" +
                 "id=" + id +
                 ", armor=" + armor +
                 ", speed=" + speed +
+                ", difficulty=" + difficulty +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", country=" + country +
@@ -125,5 +141,9 @@ public class Operative {
                 ", weapon=" + weapon +
                 ", photo=" + Arrays.toString(photo) +
                 '}';
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -1,4 +1,4 @@
-package com.operatorsInfo.springR6S;
+package com.operatorsInfo.springR6S.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
