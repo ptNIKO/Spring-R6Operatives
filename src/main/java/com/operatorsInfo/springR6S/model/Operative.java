@@ -16,12 +16,12 @@ public class Operative {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+    private String description;
+
     private int armor;
     private int speed;
     private int difficulty;
-
-    private String name;
-    private String description;
 
     @Enumerated(EnumType.STRING)
     private Countries country;
@@ -33,22 +33,20 @@ public class Operative {
     @JoinColumn (insertable = false, updatable = false, name="weapon_id")
     private Weapon weapon;
 
-    private byte[] photo;
 
     public Operative() {
     }
 
-    public Operative(Long id, int armor, int speed, int difficulty, String name, String description, Countries country, Sides side, Weapon weapon, byte[] photo) {
+    public Operative(Long id, String name, String description, int armor, int speed, int difficulty, Countries country, Sides side, Weapon weapon) {
         this.id = id;
+        this.name = name;
+        this.description = description;
         this.armor = armor;
         this.speed = speed;
         this.difficulty = difficulty;
-        this.name = name;
-        this.description = description;
         this.country = country;
         this.side = side;
         this.weapon = weapon;
-        this.photo = photo;
     }
 
     public Long getId() {
@@ -107,14 +105,6 @@ public class Operative {
         this.weapon = weapon;
     }
 
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
-    }
-
     public int getDifficulty() {
         return difficulty;
     }
@@ -127,21 +117,6 @@ public class Operative {
         return description;
     }
 
-    @Override
-    public String toString() {
-        return "Operative{" +
-                "id=" + id +
-                ", armor=" + armor +
-                ", speed=" + speed +
-                ", difficulty=" + difficulty +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", country=" + country +
-                ", side=" + side +
-                ", weapon=" + weapon +
-                ", photo=" + Arrays.toString(photo) +
-                '}';
-    }
 
     public void setDescription(String description) {
         this.description = description;

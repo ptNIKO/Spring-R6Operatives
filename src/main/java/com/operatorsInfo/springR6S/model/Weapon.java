@@ -19,6 +19,9 @@ public class Weapon {
     private String secondaryWeapon;
     private String gadget;
 
+    public Weapon() {
+    }
+
     public Operative getOperative() {
         return operative;
     }

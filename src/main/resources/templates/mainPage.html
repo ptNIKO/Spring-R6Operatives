@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <div xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>OperatorsInfo</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="UTF-8">
+        <title>OperatorsInfo</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-</head>
+    </head>
     <nav class="navbar navbar-dark bg-dark mb-2">
         <a class="navbar-brand" href="#">Rainbow Six Siege</a>
 
@@ -23,39 +23,30 @@
     </nav>
 
     <div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
-<div class="col-sm-5">
-<div class="card-deck mx-100">
-    <div class="card border-secondary mb-3" style="max-width: 18rem;">
-        <img class="card-img-top" src="/images/Ash.png" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">ASH</h5>
-    <p class="card-text">ARMOR ★</br>SPEED ★ ★ ★</br>DIFFICULTY ★ ★</p>
-    <a href="#" class="btn btn-primary">More info</a>
-</div>
-</div>
-<div class="card border-secondary mb-3" style="max-width: 18rem;">
-    <img class="card-img-top" src="/images/Sledge.png" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">SLEDGE</h5>
-        <p class="card-text">ARMOR ★ ★</br>SPEED ★ ★</br>DIFFICULTY ★</p>
-        <a href="#" class="btn btn-primary">More info</a>
-    </div>
-</div>
-<div class="card border-secondary mb-3" style="max-width: 18rem;">
-    <img class="card-img-top" src="/images/Twitch.png" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">TWITCH</h5>
-        <p class="card-text">ARMOR ★ ★</br>SPEED ★ ★</br>DIFFICULTY ★ ★</p>
-        <a href="#" class="btn btn-primary">More info</a>
-    </div>
-</div>
-</div>
-</div>
-</div>
+
+        <form method="get">
+            <div class="col-sm-5">
+                <div class="card-deck mx-100">
+                    <div th:each="operative : ${operatives}">
+                        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                            <img class="card-img-top" src="/images/Ash.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title" align="center" th:text="${operative.getName()}">ASH</h5>
+                                <p class="card-text" th:text="'ARMOR' + ' ' + ${operative.getArmor()}">ARMOR</p>
+                                <p class="card-text" th:text="'SPEED' + ' ' + ${operative.getSpeed()}">SPEED</p>
+                                <p class="card-text" th:text="'DIFFICULTY' + ' ' + ${operative.getDifficulty()}">DIFFICULTY</p>
+                                <a href="#" class="btn btn-primary">More info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
 </div>
 </div>
 </body>
