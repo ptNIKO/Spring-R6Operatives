@@ -18,7 +18,12 @@ public class MainController {
     @Autowired
     private OperativeRepo operativeRepo;
 
-    @GetMapping()
+    @GetMapping("/")
+    public String main() {
+        return "greeting";
+    }
+
+    @GetMapping("/mainPage")
     public String main(Model model) {
         Iterable<Operative> operatives = operativeRepo.findAll();
         model.addAttribute("operatives", operatives);
